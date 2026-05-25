@@ -14,7 +14,6 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: educollab-frontend
-          imagePullPolicy: Never
+          image: us-central1-docker.pkg.dev/educolab-496915/educollab-repo/frontend:v1
           ports:
             - containerPort: 80

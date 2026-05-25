@@ -20,7 +20,6 @@ spec:
       containers:
         - name: mongo
           image: mongo:7
-          imagePullPolicy: Never
 
           ports:
             - containerPort: 27017

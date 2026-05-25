@@ -14,13 +14,24 @@ spec:
     spec:
       containers:
         - name: auth-service
-          image: educollab-auth-service
-          imagePullPolicy: Never
+          image: us-central1-docker.pkg.dev/educolab-496915/educollab-repo/auth-service:v1
           ports:
             - containerPort: 5000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
           env:
             - name: MONGO_URI
               valueFrom:
                 secretKeyRef:
                   name: mongo-secret
                   key: MONGO_URI
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: JWT_SECRET

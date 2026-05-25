@@ -14,10 +14,16 @@ spec:
     spec:
       containers:
         - name: task-service
-          image: educollab-task-service
-          imagePullPolicy: Never
+          image: us-central1-docker.pkg.dev/educolab-496915/educollab-repo/task-service:v1
           ports:
             - containerPort: 5001
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
           env:
             - name: MONGO_URI
               valueFrom:
